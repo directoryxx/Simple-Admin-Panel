@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="Dashboard Admin Panel">
+    <meta name="author" content="DirectoryX">
+    <title>Dashboard</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Core JS -->
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Font-Awesome -->
+    <link rel="stylesheet" href="assets/fa/css/font-awesome.min.css">
+
+    <!-- Armata -->
+    <link href="https://fonts.googleapis.com/css?family=Armata" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="assets/css/panel.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav" id="navl">
+                <div>
+                <li class="sidebar-brand">
+                  <img src="https://pbs.twimg.com/profile_images/3743833199/994d9a80797045705ff500db31b44f58.jpeg" width="90px"  style="position: relative;top: 5px;left: 60px;" alt="..." class="img-circle profile_img">
+                </li>
+                <div class="sidebarmenu">
+                <li>
+                    <a class="active" href="dashboard"><i class="fa fa-home"></i>&nbsp;Dashboard</a>
+                </li>
+                <li>
+                    <a href="m-data"><i class="fa fa-book"></i>&nbsp;Master Data</a>
+                </li>
+                <li>
+                    <a href="presensi"><i class="fa fa-check-square"></i>&nbsp;Presensi</a>
+                </li>
+                <li>
+                    <a href="kelas"><i class="fa fa-address-book"></i>&nbsp;Kelas</a>
+                </li>
+                <li>
+                    <a href="nilai"><i class="fa fa-bolt"></i>&nbsp;Nilai</a>
+                </li>
+                <li>
+                    <a href="pembayaran"><i class="fa fa-dollar"></i>&nbsp;Pembayaran</a>
+                </li>
+                <li>
+                    <a href="pengaturan"><i class="fa fa-cog"></i>&nbsp;Pengaturan</a>
+                </li>
+                </div>
+                </div>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <ul class="nav navbar-nav">
+              <li><a href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars"></i></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#"><i class="fa fa-sign-out"></i></a></li>
+            </ul>
+          </div>
+        </nav>
+        <!-- Navbar -->
+
+
+        <!-- Page Content -->
+        <div id="content">
+
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Footer -->
+    <div class="footer-fixed">
+      <footer class="footer">
+        <div class="container">
+          <p class="text-muted">© 2017 DirectoryX</p>
+        </div>
+      </footer>
+    </div>
+    <!-- Footer -->
+
+    <!-- Custom JavaScript -->
+    <script src="assets/js/custom.js"></script>
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- notify  JavaScript -->
+    <script src="assets/js/notify.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        if ($('.footer-fixed').css('left') === '260px') {
+          $('.footer-fixed').css({
+            'left': '20px',
+            });
+        } else if ($('.footer-fixed').css('left') === '20px') {
+          $('.footer-fixed').css({
+            'left': '260px',
+          });
+        }
+    });
+    </script>
+
+    <script>
+    $(document).ready(function() {
+      $.notify("Login Sukses", "success");
+      $('#content').load('content/dashboard.html');
+      $('ul#navl li a').click(function() {
+        var page = $(this).attr('href');
+        $('#content').hide().load('content/' + page + '.html').fadeIn('500');
+        return false;
+      });
+      $('ul#navl li a').click(function() {
+        $('ul#navl li a').removeClass("active");
+        $(this).addClass("active");
+      });
+    });
+    </script>
+
+</body>
+
+</html>
